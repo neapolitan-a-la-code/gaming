@@ -48,7 +48,7 @@ function taylor() {
 };
 
 
-//This will match up your dance moves with the routine
+//This will match your dance moves with the routine
 function listenKeys() {
   
   window.addEventListener('keydown', function(event) {
@@ -92,7 +92,7 @@ function checkAccuracy() {
     //Wrong routine
     if (keysPressed[a]!==penMoves[a]) {
       failure = 1;
-      alert("That dance wont fly. Almost!");
+      alert("That dance wont fly. Once more?");
       //Insert video of penguin being eaten by shamu here
       swift();
       break;
