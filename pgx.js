@@ -1,8 +1,8 @@
 var keysPressed=[]; //human play
 var penMoves = []; //computer play
 
-//this swiftly starts a new game
-function swift() {
+//this starts a new game
+function newGame() {
   keysPressed = [];
   penMoves = [];
   addMove(3); //this will add three dance moves for first roung roung roung {TEDDY EATING PUMPKIN}
@@ -10,7 +10,7 @@ function swift() {
 };
 
 //Starts first game
-swift(); 
+newGame(); 
 
 //This randomly generates either U, D, L or R. 
 function nextMove() {
@@ -38,10 +38,12 @@ function addMove(i) {
 }; 
  
 //This checks that you have entered the right number of moves and checks answers.
-function taylor() {
+function verifyKey() {
+  var acounter = keysPressed.length-1
+
   console.log(keysPressed.length);
   console.log(penMoves.length);
-  if(keysPressed.length == penMoves.length) {
+  if(keysPressed[acounter]!==penMoves[acounter] || keysPressed.length == penMoves.length) {
     checkAccuracy();
   }
 
@@ -56,25 +58,25 @@ function listenKeys() {
       case 37: // Left
         // alert("left");
         keysPressed.push("L");
-        taylor();
+        verifyKey();
       break;
   
       case 38: // Up
         // alert("up");
         keysPressed.push("U");
-        taylor();
+        verifyKey();
       break;
   
       case 39: // Right
         // alert("right");
         keysPressed.push("R");
-        taylor();
+        verifyKey();
       break;
   
       case 40: // Down
         // alert("down");
         keysPressed.push("D");
-        taylor();
+        verifyKey();
       break;
       
     }
@@ -94,7 +96,7 @@ function checkAccuracy() {
       failure = 1;
       alert("That dance wont fly. Once more?");
       //Insert video of penguin being eaten by shamu here
-      swift();
+      newGame();
       break;
       }
       
