@@ -1,8 +1,8 @@
 var keysPressed=[]; //human play
 var penMoves = []; //computer play
 
-//this swiftly starts a new game
-function swift() {
+//this starts a new game
+function newGame() {
   keysPressed = [];
   penMoves = [];
   addMove(3); //this will add three dance moves for first roung roung roung {TEDDY EATING PUMPKIN}
@@ -10,7 +10,7 @@ function swift() {
 };
 
 //Starts first game
-swift(); 
+newGame(); 
 
 //This randomly generates either U, D, L or R. 
 function nextMove() {
@@ -38,17 +38,19 @@ function addMove(i) {
 }; 
  
 //This checks that you have entered the right number of moves and checks answers.
-function taylor() {
+function verifyKey() {
+  var acounter = keysPressed.length-1
+
   console.log(keysPressed.length);
   console.log(penMoves.length);
-  if(keysPressed.length == penMoves.length) {
+  if(keysPressed[acounter]!==penMoves[acounter] || keysPressed.length == penMoves.length) {
     checkAccuracy();
   }
 
 };
 
 
-//This will match up your dance moves with the routine
+//This will match your dance moves with the routine
 function listenKeys() {
   
   window.addEventListener('keydown', function(event) {
@@ -56,25 +58,25 @@ function listenKeys() {
       case 37: // Left
         // alert("left");
         keysPressed.push("L");
-        taylor();
+        verifyKey();
       break;
   
       case 38: // Up
         // alert("up");
         keysPressed.push("U");
-        taylor();
+        verifyKey();
       break;
   
       case 39: // Right
         // alert("right");
         keysPressed.push("R");
-        taylor();
+        verifyKey();
       break;
   
       case 40: // Down
         // alert("down");
         keysPressed.push("D");
-        taylor();
+        verifyKey();
       break;
       
     }
@@ -92,16 +94,16 @@ function checkAccuracy() {
     //Wrong routine
     if (keysPressed[a]!==penMoves[a]) {
       failure = 1;
-      alert("wrong");
+      alert("That dance wont fly. Once more?");
       //Insert video of penguin being eaten by shamu here
-      swift();
+      newGame();
       break;
       }
       
     // Right routine
     if ((a+1)===penMoves.length)
     {
-      alert("you made it through this round!");
+      alert("nICE #PengWinning");
       //Go to next round, increase number of moves by 1
       keysPressed = [];
       addMove(1);
