@@ -1,9 +1,10 @@
 // Create the canvas
 var canvas = document.createElement("canvas");
+var div = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 canvas.width = 600;
 canvas.height = 463;
-document.body.appendChild(canvas);
+div.appendChild(canvas);
 
 // Background image
 var bgReady = false;
