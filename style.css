@@ -1,5 +1,47 @@
+body {
+	width: 804px;
+}
+
+h4 {
+	margin: 0;
+	color: #2FB1C2;
+}
+
+h3 {
+	margin: 0;
+	color: #37DBF0;
+	width: 140px;
+}
+
 #canvas {
+	float: left;
 	border: 18px #014b66 solid;
 	height: 463px;
 	width: 600px;
 }
+
+#dance {
+	float: right;
+	text-align: center;
+	height: 463px;
+	width: 150px;
+	border-top: 18px #014b66 solid;
+	border-right: 18px #014b66 solid;
+	border-bottom: 18px #014b66 solid;
+	color: #8ed4ee;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+/*function newGame() {
+  keysPressed = [];
+  penMoves = [];
+  addMove(3); //this will add three dance moves for first roung roung roung {TEDDY EATING PUMPKIN}
+  
+  var moves = penMoves.join(" ");
+  var str = "<h1>" + moves + "</h1>"
+
+  var parser = new DOMParser();
+  var parsedHtml = parser.parseFromString(str, "text/html");
+  var allMoves = parsedHtml.childNodes[0];
+  dance.appendChild(allMoves);
+}*/

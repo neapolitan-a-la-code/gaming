@@ -1,6 +1,8 @@
 // Create the canvas
 var canvas = document.createElement("canvas");
 var div = document.getElementById("canvas");
+var dance = document.getElementById("directions");
+
 var ctx = canvas.getContext("2d");
 canvas.width = 600;
 canvas.height = 463;
@@ -75,7 +77,14 @@ function newGame() {
   keysPressed = [];
   penMoves = [];
   addMove(3); //this will add three dance moves for first roung roung roung {TEDDY EATING PUMPKIN}
-  console.log(penMoves);
+  
+  var moves = penMoves.join(" ");
+  var str = "<h3>" + moves + "</h3>"
+
+  var parser = new DOMParser();
+  var parsedHtml = parser.parseFromString(str, "text/html");
+  var allMoves = parsedHtml.childNodes[0];
+  dance.appendChild(allMoves);
 }
 
 //Starts first game
@@ -110,8 +119,6 @@ function addMove(i) {
 function verifyKey() {
   var acounter = keysPressed.length-1;
 
-  console.log(keysPressed.length);
-  console.log(penMoves.length);
   if(keysPressed[acounter]!==penMoves[acounter] || keysPressed.length == penMoves.length) {
     checkAccuracy();
   }
@@ -170,6 +177,7 @@ function checkAccuracy() {
       failure = 1;
       ctx.drawImage(againImage, 60, 10);
       setTimeout ( function(){
+        dance.removeChild(dance.childNodes[1]);
         newGame();
       }, 1000)
       break;
@@ -182,7 +190,16 @@ function checkAccuracy() {
       setTimeout ( function(){
         keysPressed = [];
         addMove(3);
-        console.log(penMoves);
+
+        dance.removeChild(dance.childNodes[1]);
+
+        var moves = penMoves.join(" ");
+        var str = "<h3>" + moves + "</h3>"
+
+        var parser = new DOMParser();
+        var parsedHtml = parser.parseFromString(str, "text/html");
+        var allMoves = parsedHtml.childNodes[0];
+        dance.appendChild(allMoves);
       }, 1000)
       break;
     } 
