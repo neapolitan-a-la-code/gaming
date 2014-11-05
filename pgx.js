@@ -21,12 +21,6 @@ downImage.onload = function () {
 };
 downImage.src = "images/down.png";
 
-
-var penguin = {
-  x: 200,
-  y: 250
-};
-
 // Penguin Up image
 var upReady = false;
 var upImage = new Image();
@@ -50,6 +44,27 @@ leftImage.onload = function () {
   leftReady = true;
 };
 leftImage.src = "images/left.png";
+
+var penguin = {
+  x: 200,
+  y: 250
+};
+
+// Nice! Next level
+var niceReady = false;
+var niceImage = new Image();
+niceImage.onload = function () {
+  niceReady = true;
+};
+niceImage.src = "images/nice.png";
+
+// awe, try again
+var againReady = false;
+var againImage = new Image();
+againImage.onload = function () {
+  againReady = true;
+};
+againImage.src = "images/again.png";
 
 var keysPressed=[]; //human play
 var penMoves = []; //computer play
@@ -152,20 +167,22 @@ function checkAccuracy() {
     //Wrong routine
     if (keysPressed[a]!==penMoves[a]) {
       failure = 1;
-      alert("That dance wont fly. Once more?");
-      //Insert video of penguin being eaten by shamu here
-      newGame();
+      ctx.drawImage(againImage, 60, 10);
+      setTimeout ( function(){
+        newGame();
+      }, 1000)
       break;
       }
       
     // Right routine
     if ((a+1)===penMoves.length)
     {
-      alert("nICE #PengWinning");
-      //Go to next round, increase number of moves by 1
-      keysPressed = [];
-      addMove(1);
-      console.log(penMoves);
+      ctx.drawImage(niceImage, 60, 10);
+      setTimeout ( function(){
+        keysPressed = [];
+        addMove(3);
+        console.log(penMoves);
+      }, 1000)
       break;
     } 
   }
