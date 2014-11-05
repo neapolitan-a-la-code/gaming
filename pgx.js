@@ -14,7 +14,7 @@ var bgImage = new Image();
 bgImage.onload = function () {
   bgReady = true;
 };
-bgImage.src = "images/glacier.jpg";
+bgImage.src = "./Images/glacier.jpg";
 
 // Penguin Down image
 var downReady = false;
@@ -22,7 +22,7 @@ var downImage = new Image();
 downImage.onload = function () {
   downReady = true;
 };
-downImage.src = "images/down.png";
+downImage.src = "./Images/down.png";
 
 // Penguin Up image
 var upReady = false;
@@ -30,7 +30,7 @@ var upImage = new Image();
 upImage.onload = function () {
   upReady = true;
 };
-upImage.src = "images/up.png";
+upImage.src = "./Images/up.png";
 
 // Penguin Right image
 var rightReady = false;
@@ -38,7 +38,7 @@ var rightImage = new Image();
 rightImage.onload = function () {
   rightReady = true;
 };
-rightImage.src = "images/right.png";
+rightImage.src = "./Images/right.png";
 
 // Penguin Left image
 var leftReady = false;
@@ -46,7 +46,7 @@ var leftImage = new Image();
 leftImage.onload = function () {
   leftReady = true;
 };
-leftImage.src = "images/left.png";
+leftImage.src = "./Images/left.png";
 
 var penguin = {
   x: 200,
@@ -59,7 +59,7 @@ var niceImage = new Image();
 niceImage.onload = function () {
   niceReady = true;
 };
-niceImage.src = "images/nice.png";
+niceImage.src = "./Images/nice.png";
 
 // awe, try again
 var againReady = false;
@@ -67,7 +67,7 @@ var againImage = new Image();
 againImage.onload = function () {
   againReady = true;
 };
-againImage.src = "images/again.png";
+againImage.src = "./Images/again.png";
 
 var keysPressed=[]; //human play
 var penMoves = []; //computer play
