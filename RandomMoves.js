@@ -26,29 +26,29 @@ downImage.onload = function () {
 };
 downImage.src = "images/down.png";
 
-// // Penguin Up image
-// var upReady = false;
-// var upImage = new Image();
-// upImage.onload = function () {
-// 	upReady = true;
-// };
-// upImage.src = "images/up.png";
+// Penguin Up image
+var upReady = false;
+var upImage = new Image();
+upImage.onload = function () {
+	upReady = true;
+};
+upImage.src = "images/up.png";
 
-// // Penguin Right image
-// var rightReady = false;
-// var rightImage = new Image();
-// rightImage.onload = function () {
-// 	rightReady = true;
-// };
-// rightImage.src = "images/right.png";
+// Penguin Right image
+var rightReady = false;
+var rightImage = new Image();
+rightImage.onload = function () {
+	rightReady = true;
+};
+rightImage.src = "images/right.png";
 
-// // Penguin Left image
-// var leftReady = false;
-// var leftImage = new Image();
-// leftImage.onload = function () {
-// 	leftReady = true;
-// };
-// leftImage.src = "images/left.png";
+// Penguin Left image
+var leftReady = false;
+var leftImage = new Image();
+leftImage.onload = function () {
+	leftReady = true;
+};
+leftImage.src = "images/left.png";
 
 var keysDown = {};
 
