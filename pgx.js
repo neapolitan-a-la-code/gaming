@@ -77,18 +77,16 @@ function newGame() {
   keysPressed = [];
   penMoves = [];
   addMove(3); //this will add three dance moves for first roung roung roung {TEDDY EATING PUMPKIN}
-  
+
   var moves = penMoves.join(" ");
-  var str = "<h3>" + moves + "</h3>"
+  var str = "<h3>" + moves + "</h3>";
 
   var parser = new DOMParser();
   var parsedHtml = parser.parseFromString(str, "text/html");
-  var allMoves = parsedHtml.childNodes[0];
-  dance.appendChild(allMoves);
+  var htmldoc = parsedHtml.childNodes[0];
+  allMoves = htmldoc.getElementsByTagName("h3");
+  dance.appendChild(allMoves[0]);
 }
-
-//Starts first game
-newGame(); 
 
 //This randomly generates either U, D, L or R. 
 function nextMove() {
@@ -130,6 +128,11 @@ function listenKeys() {
   
   window.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
+      case 32: // Left
+        ctx.drawImage(bgImage, 0, 0);
+        ctx.drawImage(downImage, penguin.x, penguin.y);
+        newGame();
+      break;
       case 37: // Left
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(bgImage, 0, 0);
@@ -168,40 +171,42 @@ listenKeys(); //Starts listening
 
 //This compares you dance moves with the routine and either moves you to next round or restarts game.
 function checkAccuracy() {
-  // alert(keysPressed);
-  // alert(penMoves);
   for(a=0;a<penMoves.length;a++) {
 
     //Wrong routine
     if (keysPressed[a]!==penMoves[a]) {
       failure = 1;
       ctx.drawImage(againImage, 60, 10);
+
+      var h3 = dance.getElementsByTagName("h3");
+      dance.removeChild(h3[0]);
+
       setTimeout ( function(){
-        dance.removeChild(dance.childNodes[1]);
         newGame();
-      }, 1000)
-      break;
-      }
-      
+      }, 1000);
+    }
+
     // Right routine
     if ((a+1)===penMoves.length)
     {
       ctx.drawImage(niceImage, 60, 10);
+
+      var h3 = dance.getElementsByTagName("h3");
+      dance.removeChild(h3[0]);
+
       setTimeout ( function(){
         keysPressed = [];
         addMove(3);
 
-        dance.removeChild(dance.childNodes[1]);
-
         var moves = penMoves.join(" ");
-        var str = "<h3>" + moves + "</h3>"
+        var str = "<h3>" + moves + "</h3>";
 
         var parser = new DOMParser();
         var parsedHtml = parser.parseFromString(str, "text/html");
-        var allMoves = parsedHtml.childNodes[0];
-        dance.appendChild(allMoves);
-      }, 1000)
-      break;
+        var htmldoc = parsedHtml.childNodes[0];
+        allMoves = htmldoc.getElementsByTagName("h3");
+        dance.appendChild(allMoves[0]);
+      }, 1000);
     } 
   }
 }
