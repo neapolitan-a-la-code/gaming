@@ -18,7 +18,9 @@ h3 {
 	border: 18px #014b66 solid;
 	height: 463px;
 	width: 600px;
-	background: url("images/newStart.png");
+
+	background: url("./Images/newStart.png");
+
 }
 
 #dance {
