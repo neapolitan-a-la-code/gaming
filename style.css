@@ -1,6 +1,6 @@
-body {
+/*body {
 	width: 804px;
-}
+}*/
 
 h4 {
 	margin: 0;
@@ -14,14 +14,17 @@ h3 {
 }
 
 #canvas {
-	float: left;
+/*	float: left;*/
 	border: 18px #014b66 solid;
 	height: 463px;
 	width: 600px;
-	background: url("./Images/space.png");
+
+	background: url("./Images/newStart.png");
+
 }
 
 #dance {
+	visibility: hidden;
 	float: right;
 	text-align: center;
 	height: 463px;

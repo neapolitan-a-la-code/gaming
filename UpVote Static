@@ -1,0 +1,46 @@
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div>
+  <button id="up"><img src="http://image.spreadshirt.com/image-server/v1/designs/11285564,width=178,height=178/Happy-Penguin.png" /></button>
+    <div id="votes"><p></p>
+  </div>
+  <button id="down"><img src="http://image.spreadshirt.com/image-server/v1/designs/11285574,width=178,height=178/Sad-Penguin.png" /></div>
+</button>
+  </div>
+</html>
+
+
+JavaScript 
+
+var total = 0;
+token = true;
+
+
+
+function onload() {
+  
+  document.getElementById("votes").innerHTML = total;
+
+  var buttonUp = document.getElementById("up");
+  var buttonDown = document.getElementById("down");
+
+ buttonUp.addEventListener("click", function(){ 
+  if(token === true) { total += 1; token = false; document.getElementById("votes").innerHTML = total; }
+ });
+
+
+buttonDown.addEventListener("click", function(){  
+  if(token === true) { total -= 1; token = false; }
+  document.getElementById("votes").innerHTML = total; });
+
+  
+
+  
+}R
