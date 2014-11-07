@@ -110,6 +110,7 @@ function newGame() {
   var htmldoc = parsedHtml.childNodes[0];
   allMoves = htmldoc.getElementsByTagName("h3");
   dance.appendChild(allMoves[0]);
+ 
   roboDance(); //this is the automated dance 
   console.log(penMoves);
 }
@@ -191,7 +192,7 @@ function listenKeys() {
   
   window.addEventListener('keydown', function(event) {
     switch (event.keyCode) {
-      case 32: // Space
+      case 13: // Enter Key
         firstGame ? (penDance(restImage), penDance(restImage), newGame(), (firstGame = false)) : roboDance() ;
       break;
       case 37: // Left
@@ -227,6 +228,7 @@ function listenKeys() {
   }, false);
 }
 
+
 //stops arrow keys shifting the browser window
 window.addEventListener("keydown", function(e) {
     // space and arrow keys
@@ -239,7 +241,6 @@ listenKeys(); //Starts listening
 
 
 //This compares you dance moves with the routine and either moves you to next round or restarts game.
-//At the moment if you make a mistake on the last move, no error is shown
 function checkAccuracy() {
   for(a=0;a<penMoves.length;a++) {
 
@@ -252,7 +253,6 @@ function checkAccuracy() {
       var h3 = dance.getElementsByTagName("h3");
       dance.removeChild(h3[0]);
 
-      
       penDance(gameOverImage);
       ctx.drawImage(againImage, 60, 10);
 
@@ -264,6 +264,7 @@ function checkAccuracy() {
     // Right routine && stops the #pengwinning showing when right number of keys are pressed
     if (keysPressed[a] === penMoves[a] && (a+1)===penMoves.length )
     {
+
       ctx.drawImage(niceImage, 60, 10);
 
       var h3 = dance.getElementsByTagName("h3");
@@ -281,8 +282,8 @@ function checkAccuracy() {
         var htmldoc = parsedHtml.childNodes[0];
         allMoves = htmldoc.getElementsByTagName("h3");
         dance.appendChild(allMoves[0]);
+        
         roboDance();
-      
 
 
       }, 1000);
