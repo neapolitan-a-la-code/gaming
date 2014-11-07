@@ -24,7 +24,7 @@ var restImage = new Image();
 restImage.onload = function () {
   restReady = true;
 };
-restImage.src = "images/down.png";
+restImage.src = "./Images/down.png";
 
 // Pengine Down image
 var downReady = false;
@@ -66,7 +66,7 @@ var gameOverImage = new Image();
 gameOverImage.onload = function () {
   gameOverReady = true;
 };
-gameOverImage.src = "images/fail.png";
+gameOverImage.src = "./Images/fail.png";
 
 var penguin = {
   x: 200,
